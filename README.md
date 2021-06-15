@@ -4,7 +4,7 @@ frontend
 
 1. fork this repository
 2. clone your fork
-3. install the following dependencies by running the following 4 commands
+3. install the following dependencies by running the following commands
 
 default dependencies:
 
@@ -21,6 +21,10 @@ react navigation:
 react stack navigation: 
 
 `npm install @react-navigation/stack`
+
+async:
+`npm install @react-native-async-storage/async-storage`
+
 
 
 
