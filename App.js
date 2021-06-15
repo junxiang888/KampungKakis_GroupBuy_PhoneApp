@@ -15,6 +15,13 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name ="Start" component = {StartScreen} />  
         <Stack.Screen name ="Onboard" component = {Onboard} />
+        /*<Stack.Screen name ="Signup" component = {Signup} />
+        <Stack.Screen name ="Main" component = {Main} />
+        <Stack.Screen name ="Tompang" component = {Tompang} />
+        <Stack.Screen name ="Food" component = {Food} />
+        <Stack.Screen name ="Grocer" component = {Grocer} />
+        <Stack.Screen name ="Onboard" component = {Onboard} />
+        <Stack.Screen name ="Onboard" component = {Onboard} />*/
       </Stack.Navigator>
     </NavigationContainer>
   );
