@@ -3,25 +3,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Onboard from './onboard.js'
+import StartScreen from './startscreen.js'
 
-const OnboardScreen = ({ navigation}) => {
-  return(
-    <View style = {{flex: 1 , alignItems: 'center', justifyContent: 'center'}}>
-      <Text> Please Sign In </Text>
-    </View>
-  );
-}
-
-const StartScreen = ({navigation }) => {
-  return(
-    <View style = {{flex: 1 , alignItems: 'center', justifyContent: 'center'}}>
-      <Text> Welcome To Kampung Kakis </Text>
-      <Button 
-        title = 'Enter!'
-        onPress ={() => navigation.navigate('OnboardScreen')} /> 
-    </View>
-  )
-}
 const Stack = createStackNavigator();
 
 
@@ -30,7 +14,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name ="Start" component = {StartScreen} />  
-        <Stack.Screen name ="Onboard" component = {OnboardScreen} />
+        <Stack.Screen name ="Onboard" component = {Onboard} />
       </Stack.Navigator>
     </NavigationContainer>
   );
