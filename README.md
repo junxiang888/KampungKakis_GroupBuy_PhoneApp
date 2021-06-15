@@ -2,8 +2,9 @@
 frontend
 
 
-1. clone this repository
-2. install the following dependencies by running the following 4 commands
+1. fork this repository
+2. clone your fork
+3. install the following dependencies by running the following 4 commands
 
 default dependencies:
 
