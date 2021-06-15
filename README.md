@@ -3,7 +3,7 @@ frontend
 
 
 1. clone this repository
-2. install the following dependencies by running the following 3 commands
+2. install the following dependencies by running the following 4 commands
 
 default dependencies:
 
