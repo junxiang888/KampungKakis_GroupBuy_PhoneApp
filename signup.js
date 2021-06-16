@@ -4,6 +4,10 @@ import Constants from 'expo-constants';
 export default function AddScreen({ route, navigation }) {
 
 const [text, setText] = useState("");
+const [emailtext, setEmailText] = useState("");
+const [phonetext, setPhoneText] = useState("");
+const [postaltext, setPostalText] = useState("");
+const [pwtext, setPWText] = useState("");
 const textAlignments = ["auto", "left", "right", "center", "justify"];
 
   return (
@@ -18,26 +22,26 @@ const textAlignments = ["auto", "left", "right", "center", "justify"];
       <Text style={styles.labelemail}>{'\t'}Email Address</Text>
       <TextInput
         style={styles.textInput}
-        value={text}
-        onChangeText={(newText) => setText(newText)}
+        value={emailtext}
+        onChangeText={(newText) => setEmailText(newText)}
     ></TextInput>
       <Text style={styles.labelmobile}>{'\n'}Mobile Number</Text>
       <TextInput
         style={styles.textInput}
-        value={text}
-        onChangeText={(newText) => setText(newText)}
+        value={phonetext}
+        onChangeText={(newText) => setPhoneText(newText)}
     ></TextInput>
       <Text style={styles.labelpc}>{'\n'}Postal Code</Text>
       <TextInput
         style={styles.textInput}
-        value={text}
-        onChangeText={(newText) => setText(newText)}
+        value={postaltext}
+        onChangeText={(newText) => setPostalText(newText)}
     ></TextInput>
       <Text style={styles.labelpw}>{'\n'}Set a Password</Text>
       <TextInput
         style={styles.textInput}
-        value={text}
-        onChangeText={(newText) => setText(newText)}
+        value={pwtext}
+        onChangeText={(newText) => setPWText(newText)}
     ></TextInput>
     <View style={styles.buttons}>
       <TouchableOpacity
@@ -53,6 +57,11 @@ const textAlignments = ["auto", "left", "right", "center", "justify"];
         <Text style={styles.buttonText}>Cancel</Text>
       </TouchableOpacity>
     </View>
+
+    <Text style={{ marginTop: 40, color: "grey"}}>
+      This is what you typed:
+    </Text>
+    <Text style={{ color: "#333", marginTop: 10}}>{text}</Text>
   </View>
   );
 }
