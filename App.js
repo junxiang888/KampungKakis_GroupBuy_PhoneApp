@@ -3,8 +3,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Onboard from './onboard.js'
+import Main from './Screens/Main.js'
 import StartScreen from './startscreen.js'
+import Signup from './signup.js'
+import BottomNavigator from './Screens/BottomNavigator.js';
 
 const Stack = createStackNavigator();
 
@@ -13,15 +15,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name ="Start" component = {StartScreen} />  
-        <Stack.Screen name ="Onboard" component = {Onboard} />
-        /*<Stack.Screen name ="Signup" component = {Signup} />
+        <Stack.Screen name ="Start" component = {StartScreen} />
+        <Stack.Screen name ="Signup" component = {Signup} />
         <Stack.Screen name ="Main" component = {Main} />
-        <Stack.Screen name ="Tompang" component = {Tompang} />
-        <Stack.Screen name ="Food" component = {Food} />
-        <Stack.Screen name ="Grocer" component = {Grocer} />
-        <Stack.Screen name ="Onboard" component = {Onboard} />
-        <Stack.Screen name ="Onboard" component = {Onboard} />*/
       </Stack.Navigator>
     </NavigationContainer>
   );
