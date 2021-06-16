@@ -1,13 +1,14 @@
 import { NavigationHelpersContext } from '@react-navigation/native'
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomeScreen from './Screens/Main';
 
 
-const storeData = async (value) => {
+
+const storeData = async (value,navigate) => {
 
    try {
      await AsyncStorage.setItem('cookie', value)
@@ -30,7 +31,7 @@ class Inputs extends Component {
    state = {
       email: '',
       password: ''
-      }
+   }
    
    handleEmail = (text) => {
       this.setState({ email: text })
@@ -39,48 +40,46 @@ class Inputs extends Component {
       this.setState({ password: text })
    }
    //https://ad403e0e242b.ngrok.io/getchat?cookie=lgPn3k7vYXTo
-   login = async (email, pass) => {
+   /*login = async (email, pass) => {
       fetch("https://ad403e0e242b.ngrok.io/login?phone="+email+"&password="+pass,{mode: 'cors', method: "GET"}).then(response => response.text()).then((body)=>{storeData(body);});
       const stuff = await getData()
-      console.log(stuff)
       if (stuff == 'Error') {
-         alert('Wrong username/password')
-      } else {
-         this.props.navigation.navigate('Main')
+        this.props.navigation.push('startscreen');
       }
-      }
+      else {
+        this.props.navigation.push('BottomNavigator');
+      }} */
    
    render() {
       return (
          <View style = {styles.container}>
+           <Image style={{height:100, width:200, marginTop:50, borderRadius: 15}} source={require('./assets/styles/KampungKaki.jpg')}/>
             <TextInput style = {styles.input}
-               underlineColorAndroid = "transparent"
-               placeholder = "Phone Number"
-               placeholderTextColor = "#9a73ef"
-               autoCapitalize = "none"
-               onChangeText = {this.handleEmail}/>
+                underlineColorAndroid = "transparent"
+                placeholder = "Email"
+                placeholderTextColor = "#9a73ef"
+                autoCapitalize = "none"
+                onChangeText = {this.handleEmail}/>
             
-            <TextInput secureTextEntry={true} style = {styles.input}
-               underlineColorAndroid = "transparent"
-               placeholder = "Password"
-               placeholderTextColor = "#9a73ef"
-               autoCapitalize = "none"
-               onChangeText = {this.handlePassword}/>
+            <TextInput style = {styles.input}
+                underlineColorAndroid = "transparent"
+                placeholder = "Password"
+                placeholderTextColor = "#9a73ef"
+                autoCapitalize = "none"
+                onChangeText = {this.handlePassword}/>
             <View style={{ flexDirection: "row",justifyContent:'center'}}>
                 <TouchableOpacity
                 style = {styles.submitButton}
                 onPress = {
-                    () => this.login(this.state.email,this.state.password)
-                }>
-                   
-                <Text style = {styles.submitButtonText}> Login </Text>
+                    () => this.props.navigation.navigate('BottomNavigator')}
+                >
+              <Text style = {styles.submitButtonText}> Login </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                 style = {styles.submitButton}
-                onPress = {
-                    () => this.props.navigation.navigate('Signup')
-                }>
-                <Text style = {styles.submitButtonText}> Sign up </Text>
+                onPress = {() => this.props.navigation.navigate('signup')}
+                >
+              <Text style = {styles.submitButtonText}> Sign up </Text>
                 </TouchableOpacity>
             </View>
          </View>
@@ -91,19 +90,25 @@ export default Inputs
 
 const styles = StyleSheet.create({
    container: {
-      paddingTop: 23
+      marginTop: 80,
+      justifyContent:'center',
+      alignItems:'center',
    },
    input: {
-      margin: 15,
-      height: 40,
+      marginTop: 50,
+      height: 60,
+      width:'70%',
       borderColor: '#7a42f4',
-      borderWidth: 1
+      borderWidth: 1,
+      fontSize: 20,
+   
    },
    submitButton: {
       backgroundColor: '#7a42f4',
-      padding: 10,
-      margin: 15,
-      height: 40,
+      padding: 20,
+      marginTop : 80,
+      marginHorizontal: 20,
+      height: 60,
    },
    submitButtonText:{
       color: 'white'

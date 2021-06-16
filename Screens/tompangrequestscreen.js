@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, TextInput} from 'react-native';
 import Constants from 'expo-constants';
-export default function AddScreen({ route, navigation }) {
+export default function AddScreen({ navigation }) {
 
 const [text, setText] = useState("");
 const textAlignments = ["auto", "left", "right", "center", "justify"];
@@ -23,8 +23,9 @@ const textAlignments = ["auto", "left", "right", "center", "justify"];
         <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.goBack()}
+        
         style={[styles.button, styles.cancelButton]}
+        onPress={() => navigation.goBack()}
       >
         <Text style={styles.buttonText}>Cancel</Text>
       </TouchableOpacity>

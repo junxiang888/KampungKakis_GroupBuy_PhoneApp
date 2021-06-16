@@ -2,10 +2,14 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon1 from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../consts/colors';
 import {View} from 'react-native';
 import Main from './Main';
 import CartScreen from '../CartScreen';
+import TompangMain from './TompangMain';
+import ChatScreen from './ChatScreen';
+import GroceryScreen from './GroceryScreen';
 const Tab = createBottomTabNavigator();
 
 const BottomNavigator = () => {
@@ -21,26 +25,26 @@ const BottomNavigator = () => {
         activeTintColor: COLORS.primary,
       }}>
       <Tab.Screen
-        name="HomeScreen"
+        name="Food"
         component={Main}
         options={{
           tabBarIcon: ({color}) => (
-            <Icon name="home-filled" color={color} size={28} />
+            <Icon name="fastfood" color={color} size={28} />
           ),
         }}
       />
       <Tab.Screen
-        name="LocalMall"
-        component={Main}
+        name="Grocery"
+        component={GroceryScreen}
         options={{
           tabBarIcon: ({color}) => (
-            <Icon name="local-mall" color={color} size={28} />
+            <Icon1 name="fruit-citrus" color={color} size={28} />
           ),
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={Main}
+        name="chat"
+        component={ChatScreen}
         options={{
           tabBarIcon: ({color}) => (
             <View
@@ -56,17 +60,17 @@ const BottomNavigator = () => {
                 top: -25,
                 elevation: 5,
               }}>
-              <Icon name="search" color={COLORS.primary} size={28} />
+              <Icon name="chat" color={COLORS.primary} size={28} />
             </View>
           ),
         }}
       />
       <Tab.Screen
-        name="Favorite"
-        component={Main}
+        name="Tompang La!"
+        component={TompangMain}
         options={{
           tabBarIcon: ({color}) => (
-            <Icon name="favorite" color={color} size={28} />
+            <Icon name="hail" color={color} size={28} />
           ),
         }}
       />

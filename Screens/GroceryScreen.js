@@ -17,7 +17,8 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../consts/colors';
 import categories from '../consts/categories';
-import foods from '../consts/foods';
+import grocery from '../consts/grocery';
+
 const {width} = Dimensions.get('screen');
 const cardWidth = width / 2 - 20;
 
@@ -67,20 +68,20 @@ const Main = ({navigation}) => {
       </ScrollView>
     );
   };
-  const Card = ({food}) => {
+  const Card = ({grocery}) => {
     return (
       <TouchableHighlight
         underlayColor={COLORS.white}
         activeOpacity={0.9}
-        onPress={() => navigation.navigate('DetailsScreen', food)}>
+        onPress={() => navigation.navigate('DetailsScreen', grocery)}>
         <View style={style.card}>
           <View style={{alignItems: 'center', top: -40}}>
-            <Image source={food.image} style={{height: 120, width: 120}} />
+            <Image source={grocery.image} style={{height: 120, width: 120}} />
           </View>
           <View style={{marginHorizontal: 20}}>
-            <Text style={{fontSize: 18, fontWeight: 'bold'}}>{food.name}</Text>
+            <Text style={{fontSize: 18, fontWeight: 'bold'}}>{grocery.name}</Text>
             <Text style={{fontSize: 14, color: COLORS.grey, marginTop: 2}}>
-              {food.ingredients}
+              {grocery.ingredients}
             </Text>
           </View>
           <View
@@ -91,7 +92,7 @@ const Main = ({navigation}) => {
               justifyContent: 'space-between',
             }}>
             <Text style={{fontSize: 18, fontWeight: 'bold'}}>
-              ${food.price}
+              ${grocery.price}
             </Text>
             <View style={style.addToCartBtn}>
               <Icon name="add" size={20} color={COLORS.white} />
@@ -116,7 +117,7 @@ const Main = ({navigation}) => {
           </Text>
         </View>
         <Image
-          source={require('../consts/assets/person.png')}
+          source={require('../assets/person.png')}
           style={{height: 50, width: 50, borderRadius: 25}}
         />
       </View>
@@ -130,7 +131,7 @@ const Main = ({navigation}) => {
           <Icon name="search" size={28} />
           <TextInput
             style={{flex: 1, fontSize: 18}}
-            placeholder="Search for food"
+            placeholder="Search for grocery"
           />
         </View>
         <View style={style.sortBtn}>
@@ -143,8 +144,8 @@ const Main = ({navigation}) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={2}
-        data={foods}
-        renderItem={({item}) => <Card food={item} />}
+        data={grocery}
+        renderItem={({item}) => <Card grocery={item} />}
       />
     </SafeAreaView>
   );

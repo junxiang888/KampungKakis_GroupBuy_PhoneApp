@@ -33,25 +33,25 @@ const register = async (text, emailtext, phonetext, postaltext, pwtext) => {
         value={text}
         onChangeText={(newText) => setText(newText)}
     ></TextInput>
-      <Text style={styles.labelemail}>{'\t'}Email Address</Text>
+      <Text style={styles.labelemail}>Email Address</Text>
       <TextInput
         style={styles.textInput}
         value={emailtext}
         onChangeText={(newText) => setEmailText(newText)}
     ></TextInput>
-      <Text style={styles.labelmobile}>{'\n'}Mobile Number</Text>
+      <Text style={styles.labelmobile}>Mobile Number</Text>
       <TextInput
         style={styles.textInput}
         value={phonetext}
         onChangeText={(newText) => setPhoneText(newText)}
     ></TextInput>
-      <Text style={styles.labelpc}>{'\n'}Postal Code</Text>
+      <Text style={styles.labelpc}>Postal Code</Text>
       <TextInput
         style={styles.textInput}
         value={postaltext}
         onChangeText={(newText) => setPostalText(newText)}
     ></TextInput>
-      <Text style={styles.labelpw}>{'\n'}Set a Password</Text>
+      <Text style={styles.labelpw}>Set a Password</Text>
       <TextInput
         style={styles.textInput}
         value={pwtext}
@@ -59,8 +59,7 @@ const register = async (text, emailtext, phonetext, postaltext, pwtext) => {
     ></TextInput>
     <View style={styles.buttons}>
       <TouchableOpacity
-        onPress={() =>  navigation.navigate('Main')}
-        
+        onPress={() => navigation.navigate("BottomNavigator")}
         style={[styles.button, styles.submitButton]}
       >
         <Text style={styles.buttonText}>Submit</Text>
@@ -82,31 +81,33 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     marginBottom: 50,
+    textAlign: "center",
+    justifyContent: "center"
   },
   label: {
     fontSize: 15,
-    marginLeft: -220,
-    marginBottom: -12,
+    textAlign: "center",
+    justifyContent: "center"
   },
   labelemail: {
     fontSize: 15,
-    marginLeft: -200,
-    marginBottom: -12,
+    textAlign: "center",
+    justifyContent: "center"
   },
   labelmobile: {
     fontSize: 15,
-    marginLeft: -155,
-    marginBottom: -12,
+    textAlign: "center",
+    justifyContent: "center"
   },
   labelpc: {
     fontSize: 15,
-    marginLeft: -185,
-    marginBottom: -12,
+    textAlign: "center",
+    justifyContent: "center"
   },
   labelpw: {
     fontSize: 15,
-    marginLeft: -165,
-    marginBottom: -12,
+    textAlign: "center",
+    justifyContent: "center"
   },
   textInput: {
     margin: 20,
@@ -114,13 +115,14 @@ const styles = StyleSheet.create({
     width: "80%",
     padding: 10,
     borderColor: "#ccc",
+    
   },
   buttons: {
     flexDirection: "row",
   },
   button: {
-      padding: 10,
-      margin: 5,
+      padding: 20,
+      margin: 10,
   },
   buttonText: {
     fontWeight: "bold",
