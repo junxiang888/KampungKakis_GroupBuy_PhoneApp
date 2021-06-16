@@ -4,9 +4,13 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from './Screens/Main.js'
-import StartScreen from './startscreen.js'
-import Signup from './signup.js'
+import startscreen from './startscreen.js'
+import signup from './signup.js'
 import BottomNavigator from './Screens/BottomNavigator.js';
+import DetailsScreen from './Screens/DetailsScreen.js';
+import tompangofferscreen from './Screens/tompangofferscreen';
+import tompangrequestscreen from './Screens/tompangrequestscreen';
+import TompangMain from './Screens/TompangMain';
 
 const Stack = createStackNavigator();
 
@@ -15,9 +19,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name ="Start" component = {StartScreen} />
-        <Stack.Screen name ="Signup" component = {Signup} />
-        <Stack.Screen name ="Main" component = {Main} />
+      <Stack.Screen name ="Start" component = {startscreen} options={{headerShown: false}}/>
+        <Stack.Screen name ="signup" component = {signup} options={{headerShown: false}}/>
+        <Stack.Screen name ="Main" component = {Main} options={{headerShown: false}}/>
+        <Stack.Screen name ="BottomNavigator" component = {BottomNavigator} options={{headerShown: false}}/>
+        <Stack.Screen name ="DetailsScreen" component = {DetailsScreen} options={{headerShown: false}}/>
+        <Stack.Screen name ="Request" component = {tompangrequestscreen} options={{headerShown: false}}/>
+        <Stack.Screen name ="Offer" component = {tompangofferscreen} options={{headerShown: false}}/>
+        <Stack.Screen name ="Tompang" component = {TompangMain} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
