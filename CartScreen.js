@@ -1,13 +1,20 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text, Image} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import COLORS from '../../consts/colors';
-import foods from '../../consts/foods';
-import {PrimaryButton} from '../components/Button';
+import COLORS from './consts/colors';
+import foods from './consts/foods';
+import {PrimaryButton} from './components/Button';
 
 const CartScreen = ({navigation}) => {
   const CartCard = ({item}) => {
+    const [count,setCount] = useState(0)
+    function buttonPressedIncrement(){
+      setCount(count+1)
+    }
+    function buttonPressedDecrement(){
+      setCount(count-1)
+    }
     return (
       <View style={style.cartCard}>
         <Image source={item.image} style={{height: 80, width: 80}} />
@@ -24,11 +31,15 @@ const CartScreen = ({navigation}) => {
           </Text>
           <Text style={{fontSize: 17, fontWeight: 'bold'}}>${item.price}</Text>
         </View>
-        <View style={{marginRight: 20, alignItems: 'center'}}>
-          <Text style={{fontWeight: 'bold', fontSize: 18}}>3</Text>
+        <View style={{marginRight: 20, alignItems: 'center', }}>
+          <Text style={{fontWeight: 'bold', fontSize: 18}}>{count}</Text>
           <View style={style.actionBtn}>
-            <Icon name="remove" size={25} color={COLORS.white} />
-            <Icon name="add" size={25} color={COLORS.white} />
+            <TouchableOpacity onPress={buttonPressedDecrement}>
+              <Icon name="remove" size={25} color={COLORS.white} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={buttonPressedIncrement}>
+              <Icon name="add" size={25} color={COLORS.white} />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
