@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Text, View, StyleSheet, TouchableOpacity, TextInput} from 'react-native';
-import Constants from 'expo-constants';
+import { NavigationHelpersContext } from '@react-navigation/native'
+import React, { Component, useState } from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Main from './Screens/Main';
 export default function AddScreen({ route, navigation }) {
 
 const [text, setText] = useState("");
@@ -10,6 +14,16 @@ const [postaltext, setPostalText] = useState("");
 const [pwtext, setPWText] = useState("");
 const textAlignments = ["auto", "left", "right", "center", "justify"];
 
+const register = async (text, emailtext, phonetext, postaltext, pwtext) => {
+  const stuff = ''
+  fetch("https://ad403e0e242b.ngrok.io/register?name="+text+"&email="+emailtext+"&phone="+phonetext+"&postalcode="+postaltext+"&password="+pwtext,{mode: 'cors', method: "GET"}).then(response => response.text()).then(body=>stuff=body);
+      console.log(stuff)
+      if (stuff == 'Error') {
+         alert('Wrong username/password')
+      } else {
+         this.props.navigation.navigate('Main')
+  }
+  }
   return (
     <View style={{ flex:1, alignItems: "center", justifyContent: "center"}}>
       <Text style={styles.labelmain}>Sign Up</Text> 
@@ -45,11 +59,13 @@ const textAlignments = ["auto", "left", "right", "center", "justify"];
     ></TextInput>
     <View style={styles.buttons}>
       <TouchableOpacity
-        onPress={() => navigation.goBack()}
+        onPress={() =>  navigation.navigate('Main')}
+        
         style={[styles.button, styles.submitButton]}
       >
         <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
+      
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         style={[styles.button, styles.cancelButton]}
@@ -57,11 +73,6 @@ const textAlignments = ["auto", "left", "right", "center", "justify"];
         <Text style={styles.buttonText}>Cancel</Text>
       </TouchableOpacity>
     </View>
-
-    <Text style={{ marginTop: 40, color: "grey"}}>
-      This is what you typed:
-    </Text>
-    <Text style={{ color: "#333", marginTop: 10}}>{text}</Text>
   </View>
   );
 }
