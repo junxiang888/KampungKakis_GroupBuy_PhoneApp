@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../consts/colors';
 import {View} from 'react-native';
 import Main from './Main';
+import CartScreen from '../CartScreen';
 const Tab = createBottomTabNavigator();
 
 const BottomNavigator = () => {
@@ -71,7 +72,7 @@ const BottomNavigator = () => {
       />
       <Tab.Screen
         name="Cart"
-        component={Main}
+        component={CartScreen}
         options={{
           tabBarIcon: ({color}) => (
             <Icon name="shopping-cart" color={color} size={28} />

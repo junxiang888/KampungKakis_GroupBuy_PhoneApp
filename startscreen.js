@@ -38,7 +38,7 @@ class Inputs extends Component {
                 <TouchableOpacity
                 style = {styles.submitButton}
                 onPress = {
-                    () => this.login(this.state.email,this.state.password)
+                    () => this.props.navigation.navigate('BottomNavigator')
                 }>
                 <Text style = {styles.submitButtonText}> Login </Text>
                 </TouchableOpacity>
